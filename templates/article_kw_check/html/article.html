@@ -1,0 +1,37 @@
+{#{% extends 'base.html' %}#}
+{% extends 'base2.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <form method="post" >
+    {% csrf_token %}
+    {{ form.give_your_keyword|as_crispy_field }}
+    <button type="submit" class="btn btn-success" >CLICK ME</button><br>
+      <p></p>
+      <label> Exist keyword show green and others is/are red</label>
+      <p class="exist" style="color: green;">{{results}}</p><br>
+      <p class="exist" style="color: red;">{{non_match}}</p><br>
+
+    {{ form.article|as_crispy_field }}
+
+
+  </form>
+{% endblock %}
+{#{% block content %}#}
+{#    <div class="container">#}
+{#    <form name="article" method="POST">#}
+{#            <label>Insert your keyword</label>#}
+{#            <p></p>#}
+{##}
+{#            <textarea class="form-control rounded-0" id="article_title" name="article_title"  placeholder="please insert your all keyword and seperate them using comma(',') " rows="0"></textarea><br>#}
+{#            <label> Insert Your article</label>#}
+{#            {% csrf_token %}#}
+{#            <textarea name="article2" id="article" class="form-control rounded-0" rows="20" ></textarea>#}
+{#            <p></p>#}
+{#            <input type="submit" value="OK" name="check_btn">#}
+{#        </form>#}
+{##}
+{##}
+{##}
+{#    </div>#}
+{#{% endblock %}#}

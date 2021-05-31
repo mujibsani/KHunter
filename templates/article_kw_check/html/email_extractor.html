@@ -1,0 +1,24 @@
+{#{% extends 'base.html' %}#}
+{% extends 'base2.html' %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <form method="post" >
+    {% csrf_token %}
+      {{ form.give_your_url|as_crispy_field }}
+    <button type="FInd Email" class="btn btn-success" >CLICK ME</button><br>
+  <p></p>
+      {% for mail in email_list %}
+            <p>{{ mail }}</p>
+      {% endfor %}
+{#      <p></p>#}
+{#      <label> Exist keyword show green and others is/are red</label>#}
+{#      <p class="exist" style="color: green;">{{results}}</p><br>#}
+{#      <p class="exist" style="color: red;">{{non_match}}</p><br>#}
+{##}
+{#    {{ form.article|as_crispy_field }}#}
+
+
+
+  </form>
+{% endblock %}
